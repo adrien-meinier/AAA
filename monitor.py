@@ -49,7 +49,7 @@ def get_process_info():
     top3 = sorted(processes, key=lambda x: x.get("cpu_percent", 0), reverse=True)[:3]
     return processes, top3
 
-def analyze_folder(path):
+def analyze_folder(path="sample_data"):
     exts = {"txt": 0, "py": 0, "pdf": 0, "jpg": 0}
     total_files = 0
     
@@ -84,7 +84,7 @@ def generate_dashboard():
     mem_data = get_memory_info()
     sys_data = get_system_info()
     processes, top3 = get_process_info()
-    folder_path = os.path.join(os.path.expanduser('~'), "Documents")
+    folder_path = "sample_data"
     file_counts, file_percentages, total_files = analyze_folder(folder_path)
 
     data = {}
