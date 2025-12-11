@@ -16,7 +16,6 @@ header {
 main {
     padding: 20px;
     display: grid;
-    /* Mise en page responsive (3 colonnes max) */
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
     gap: 20px;
 }
@@ -50,10 +49,6 @@ th, td {
 th {
     background-color: #f2f2f2;
 }
-
-/* ------------------------------------------------ */
-/* Barres de progression et Couleurs (Exigences)    */
-/* ------------------------------------------------ */
 
 .progress-bar-container {
     background-color: #e0e0e0;
