@@ -44,16 +44,23 @@ import socket      # Network information
 import time        # Time management
 import os          # Operating system interface
 import re          # Regular expressions
+from datetime import datetime, timedelta  # Date and time information
 ```
 
 ### Setup project directory
 
 ```bash
-# Create monitoring directory in web server
-sudo mkdir -p /var/www/html/monitoring
+# Clone the repository
+git clone https://github.com/adrien-meinier/AAA.git
+cd AAA
 
-# Clone repository files to the directory
-# (Copy monitor.py, template.html, template.css, and sample_data/)
+# Copy files to web server directory
+sudo mkdir -p /var/www/html/monitoring
+sudo cp -r * /var/www/html/monitoring/
+
+# Set proper permissions
+sudo chown -R www-data:www-data /var/www/html/monitoring
+
 ```
 
 ## Usage
@@ -97,13 +104,16 @@ Example: `http://192.168.1.100/monitoring/`
 
 ## Screenshots
 
-![Dashboard Overview](screenshots/dashboard.png)
-*Note: Add screenshots of your dashboard in a `screenshots/` folder*
+<img width="501" height="100" alt="image" src="https://github.com/user-attachments/assets/de3950f5-f1c9-443c-954b-1b4af97f5d74" />
+
+<img width="428" height="281" alt="image" src="https://github.com/user-attachments/assets/71bc118f-7f37-4574-8f90-c698d32bbe65" />
+
+<img width="584" height="473" alt="image" src="https://github.com/user-attachments/assets/7613ccce-d402-4c79-9fee-8b1ed8a17c5d" />
+
 
 ## Challenges Encountered
 
 - Understanding `psutil` library documentation for cross-platform compatibility
-- Implementing efficient file system traversal for file type analysis
 - Managing template variable replacement without a templating engine
 - Handling file encoding issues across different operating systems
 - Synchronizing dashboard refresh rate with data collection intervals
@@ -113,18 +123,16 @@ Example: `http://192.168.1.100/monitoring/`
 
 - Add disk usage statistics and network traffic monitoring
 - Implement historical data visualization with graphs/charts
-- Create a configuration file for customizable refresh intervals
 - Add export functionality for monitoring data (CSV/JSON)
-- Develop a REST API for remote data access
 - Include system alerts for critical resource thresholds
 - Support for Windows and macOS monitoring
-- Add responsive design for mobile viewing
-- Implement systemd service for automatic startup
 - Add authentication for remote access security
 
 ## Author
 
 **Adrien Meinier**  
+**Loick MIchel**  
+**Andrés Montes Zuluaga**
 - GitHub: [@adrien-meinier](https://github.com/adrien-meinier)
 - Repository: [AAA](https://github.com/adrien-meinier/AAA)
 
