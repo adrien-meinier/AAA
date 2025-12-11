@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 
 
 REFRESH_INTERVAL = 30 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__)) 
+BASE_DIR = "/var/www/html/monitoring/"
 
 
 def get_cpu_info():
@@ -153,4 +153,5 @@ if __name__ == "__main__":
         generate_dashboard()
 
         print(f"Attente de {REFRESH_INTERVAL} secondes avant la prochaine génération...")
+
         time.sleep(REFRESH_INTERVAL)
