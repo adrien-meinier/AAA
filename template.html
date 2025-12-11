@@ -15,7 +15,7 @@
 
     <main>
         <section id="system-info">
-            <h2>🌍 Informations Système</h2>
+            <h2>Informations Système</h2>
             <p><strong>Nom de la machine:</strong> {{ system_hostname }}</p>
             <p><strong>OS:</strong> {{ system_os_name }}</p>
             <p><strong>Heure de Démarrage:</strong> {{ system_boot_time }}</p>
@@ -24,12 +24,12 @@
         </section>
 
         <section id="network-info">
-            <h2>📡 Réseau</h2>
+            <h2>Réseau</h2>
             <p><strong>Adresse IP:</strong> {{ network_ip_address }}</p>
         </section>
 
         <section id="cpu-info">
-            <h2>🧠 CPU</h2>
+            <h2>CPU</h2>
             <p><strong>Cœurs:</strong> {{ cpu_core_count }}</p>
             <p><strong>Fréquence:</strong> {{ cpu_frequency_mhz }} MHz</p>
             <p><strong>Utilisation:</strong> <span class="usage-value usage-{{ cpu_usage_color }}">{{ cpu_usage_percent }}%</span></p>
@@ -39,7 +39,7 @@
         </section>
 
         <section id="memory-info">
-            <h2>💾 Mémoire (RAM)</h2>
+            <h2>Mémoire (RAM)</h2>
             <p><strong>RAM Totale:</strong> {{ memory_total_gb }} GB</p>
             <p><strong>RAM Utilisée:</strong> {{ memory_used_gb }} GB</p>
             <p><strong>Pourcentage:</strong> <span class="usage-value usage-{{ memory_usage_color }}">{{ memory_usage_percent }}%</span></p>
@@ -49,7 +49,7 @@
         </section>
 
         <section id="process-info">
-            <h2>📊 Top 3 Processus</h2>
+            <h2>Top 3 Processus</h2>
             <p>Total de processus en cours: {{ process_total_count }}</p>
             <table>
                 <thead>
@@ -62,7 +62,7 @@
         </section>
 
         <section id="file-info">
-            <h2>📁 Statistiques de Fichiers</h2>
+            <h2>Statistiques de Fichiers</h2>
             <p>Dossier Analysé: <code>{{ file_analysis_directory }}</code></p>
             <table>
                 <thead>
