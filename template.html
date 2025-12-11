@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="30"> 
+    <title>Challenge Triple A - Dashboard de Monitoring</title>
+    <link rel="stylesheet" href="template.css">
+</head>
+<body>
+    <header>
+        <h1>Tableau de Bord de Monitoring</h1>
+        <p>Dernière mise à jour: <strong>{{ generation_timestamp }}</strong></p>
+    </header>
+
+    <main>
+        <section id="system-info">
+            <h2>🌍 Informations Système</h2>
+            <p><strong>Nom de la machine:</strong> {{ system_hostname }}</p>
+            <p><strong>OS:</strong> {{ system_os_name }}</p>
+            <p><strong>Heure de Démarrage:</strong> {{ system_boot_time }}</p>
+            <p><strong>Uptime:</strong> {{ system_uptime }}</p>
+            <p><strong>Utilisateurs connectés:</strong> {{ system_users_count }}</p>
+        </section>
+
+        <section id="network-info">
+            <h2>📡 Réseau</h2>
+            <p><strong>Adresse IP:</strong> {{ network_ip_address }}</p>
+        </section>
+
+        <section id="cpu-info">
+            <h2>🧠 CPU</h2>
+            <p><strong>Cœurs:</strong> {{ cpu_core_count }}</p>
+            <p><strong>Fréquence:</strong> {{ cpu_frequency_mhz }} MHz</p>
+            <p><strong>Utilisation:</strong> <span class="usage-value usage-{{ cpu_usage_color }}">{{ cpu_usage_percent }}%</span></p>
+            <div class="progress-bar-container">
+                <div class="progress-bar {{ cpu_usage_color }}" style="width: {{ cpu_usage_percent }}%;"></div>
+            </div>
+        </section>
+
+        <section id="memory-info">
+            <h2>💾 Mémoire (RAM)</h2>
+            <p><strong>RAM Totale:</strong> {{ memory_total_gb }} GB</p>
+            <p><strong>RAM Utilisée:</strong> {{ memory_used_gb }} GB</p>
+            <p><strong>Pourcentage:</strong> <span class="usage-value usage-{{ memory_usage_color }}">{{ memory_usage_percent }}%</span></p>
+            <div class="progress-bar-container">
+                <div class="progress-bar {{ memory_usage_color }}" style="width: {{ memory_usage_percent }}%;"></div>
+            </div>
+        </section>
+
+        <section id="process-info">
+            <h2>📊 Top 3 Processus</h2>
+            <p>Total de processus en cours: {{ process_total_count }}</p>
+            <table>
+                <thead>
+                    <tr><th>Nom</th><th>CPU (%)</th><th>RAM (%)</th></tr>
+                </thead>
+                <tbody>
+                    {{ process_list_html }}
+                </tbody>
+            </table>
+        </section>
+
+        <section id="file-info">
+            <h2>📁 Statistiques de Fichiers</h2>
+            <p>Dossier Analysé: <code>{{ file_analysis_directory }}</code></p>
+            <table>
+                <thead>
+                    <tr><th>Extension</th><th>Nb total</th><th>% du total</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>.txt</td><td>{{ files_txt_count }}</td><td>{{ files_txt_percent }}%</td></tr>
+                    <tr><td>.py</td><td>{{ files_py_count }}</td><td>{{ files_py_percent }}%</td></tr>
+                    <tr><td>.pdf</td><td>{{ files_pdf_count }}</td><td>{{ files_pdf_percent }}%</td></tr>
+                    <tr><td>.jpg</td><td>{{ files_jpg_count }}</td><td>{{ files_jpg_percent }}%</td></tr>
+                </tbody>
+            </table>
+            <p><strong>Total Fichiers Analysés:</strong> {{ files_total_count }}</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Challenge Triple A | Généré le {{ generation_datetime }}</p>
+    </footer>
+</body>
+</html>
